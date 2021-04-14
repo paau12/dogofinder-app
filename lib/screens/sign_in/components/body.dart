@@ -22,7 +22,7 @@ class Body extends StatelessWidget {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(height: SizeConfig.screenHight * 0.04),
+                SizedBox(height: SizeConfig.screenHight * 0.02),
                 Text(
                   "Bienvenido a DogoFinder",
                   textAlign: TextAlign.center,
@@ -36,22 +36,22 @@ class Body extends StatelessWidget {
                   "Inicia sesión con tu correo y contraseña \nó con alguna red social",
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: SizeConfig.screenHight * 0.08),
+                SizedBox(height: SizeConfig.screenHight * 0.09),
                 SignForm(),
-                SizedBox(height: SizeConfig.screenHight * 0.08),
+                SizedBox(height: SizeConfig.screenHight * 0.06),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    SocialCard(
+                      icon: "assets/icons/google-icon.svg",
+                      press: () {},
+                    ),
                     SocialCard(
                       icon: "assets/icons/facebook-2.svg",
                       press: () {},
                     ),
                     SocialCard(
                       icon: "assets/icons/twitter.svg",
-                      press: () {},
-                    ),
-                    SocialCard(
-                      icon: "assets/icons/google-icon.svg",
                       press: () {},
                     ),
                   ],

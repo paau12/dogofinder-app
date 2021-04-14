@@ -1,4 +1,5 @@
 import 'package:dogofinder_app/screens/forgot_password/forgot_password_screen.dart';
+import 'package:dogofinder_app/screens/sign_up/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import '../constants.dart';
 import '../size_config.dart';
@@ -18,7 +19,7 @@ class NoAccountText extends StatelessWidget {
               fontSize: getProportionateScreenWidth(16),
             )),
         GestureDetector(
-          onTap: () {},
+          onTap: () => Navigator.pushNamed(context, SignUpScreen.routeName),
           child: Text(
             "Registrate",
             style: TextStyle(

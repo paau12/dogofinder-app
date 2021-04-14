@@ -1,22 +1,21 @@
 import 'package:dogofinder_app/components/custom_surffix_icon.dart';
 import 'package:dogofinder_app/components/default_button.dart';
 import 'package:dogofinder_app/components/form_error.dart';
-import 'package:dogofinder_app/screens/forgot_password/forgot_password_screen.dart';
-import 'package:dogofinder_app/screens/login_success/login_success_screen.dart';
+import 'package:dogofinder_app/screens/complete_profile/complete_profile_screen.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../size_config.dart';
 
-class SignForm extends StatefulWidget {
+class SignUpForm extends StatefulWidget {
   @override
-  _SignFormState createState() => _SignFormState();
+  _SignUpFormState createState() => _SignUpFormState();
 }
 
-class _SignFormState extends State<SignForm> {
+class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   String email;
   String password;
-  bool remember = false;
+  String confirm_password;
   final List<String> errors = [];
 
   void addError({String error}) {
@@ -36,53 +35,58 @@ class _SignFormState extends State<SignForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          buildEmailFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          buildPasswordFormField(),
-          SizedBox(height: getProportionateScreenHeight(30)),
-          Row(
-            children: [
-              Checkbox(
-                value: remember,
-                activeColor: kPrimaryColor,
-                onChanged: (value) {
-                  setState(() {
-                    remember = value;
-                  });
-                },
-              ),
-              Text("Recordar contraseña"),
-              Spacer(),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, ForgotPasswordScreen.routeName),
-                child: Text(
-                  "Olvidé mi contraseña",
-                  style: TextStyle(decoration: TextDecoration.underline),
-                ),
-              )
-            ],
-          ),
-          FormError(errors: errors),
-          SizedBox(height: getProportionateScreenHeight(20)),
-          DefaultBottom(
-            text: "Continuar",
-            press: () {
-              if (_formKey.currentState.validate()) {
-                _formKey.currentState.save();
-                Navigator.pushNamed(context, LoginSuccess.routeName);
-              }
-            },
-          ),
-        ],
+        key: _formKey,
+        child: Column(
+          children: [
+            buildEmailFormField(),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            buildPassFormField(),
+            SizedBox(height: getProportionateScreenHeight(30)),
+            buildConfPassFormField(),
+            FormError(errors: errors),
+            SizedBox(height: getProportionateScreenHeight(40)),
+            DefaultBottom(
+              text: "Continuar",
+              press: () {
+                if (_formKey.currentState.validate()) {
+                  //ir a completar la página de perfil
+                  Navigator.pushNamed(context, CompleteProfileScreen.routeName);
+                }
+              },
+            ),
+          ],
+        ));
+  }
+
+  TextFormField buildConfPassFormField() {
+    return TextFormField(
+      obscureText: true,
+      onSaved: (newValue) => confirm_password = newValue,
+      onChanged: (value) {
+        if (password == confirm_password) {
+          removeError(error: kMatchPassError);
+        }
+        return null;
+      },
+      validator: (value) {
+        if (value.isEmpty) {
+          return "";
+        } else if (password != value) {
+          addError(error: kMatchPassError);
+          return "";
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        labelText: "Confirmar contraseña",
+        hintText: "Re-ingresa tu contraseña",
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        suffixIcon: CustomSurffixIcon(svgIcon: "assets/icons/Lock.svg"),
       ),
     );
   }
 
-  TextFormField buildPasswordFormField() {
+  TextFormField buildPassFormField() {
     return TextFormField(
       obscureText: true,
       onSaved: (newValue) => password = newValue,
