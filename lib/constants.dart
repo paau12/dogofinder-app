@@ -10,6 +10,40 @@ const kPrimaryGradientColor = LinearGradient(
 const kSecondaryColor = Color(0xFF979797);
 const kTextColor = Color(0xFF757575);
 const kAnimationDuration = Duration(milliseconds: 200);
+const textWhite = Color(0xFFFFFFFF);
+const textBlack = Color(0xFF000000);
+const backgroundColor = Color.fromRGBO(237, 214, 180, 1.0);
+
+//color card
+const card1 = Color(0xFF15464E);
+const card2 = Color(0xFFC9E193);
+const card3 = Color(0xFF00B7B7);
+const card4 = Color(0xFFB6DDDF);
+const card5 = Color(0xFFC9E193);
+
+const contentWhite = TextStyle(
+  fontSize: 15,
+  height: 1.5,
+  color: textWhite,
+);
+
+const contentBlack = TextStyle(
+  fontSize: 15,
+  height: 1.5,
+  color: textBlack,
+);
+
+const appTitle = TextStyle(
+  fontSize: 35,
+  fontWeight: FontWeight.bold,
+  height: 1.5,
+);
+
+const appSubTitle = TextStyle(
+  fontSize: 30,
+  fontWeight: FontWeight.bold,
+  height: 1.5,
+);
 
 final headingStyle = TextStyle(
   fontSize: getProportionateScreenWidth(28),

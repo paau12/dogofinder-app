@@ -40,14 +40,14 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
         child: Column(
           children: [
             buildFirstNameFormField(),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(20)),
             buildLastNameFormField(),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(20)),
             buildPhoneNumberFormField(),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(20)),
             buildAddressFormField(),
             FormError(errors: errors),
-            SizedBox(height: getProportionateScreenHeight(30)),
+            SizedBox(height: getProportionateScreenHeight(20)),
             DefaultBottom(
               text: "Continuar",
               press: () {
@@ -127,7 +127,6 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
 
   TextFormField buildFirstNameFormField() {
     return TextFormField(
-      keyboardType: TextInputType.emailAddress,
       onSaved: (newValue) => firstName = newValue,
       onChanged: (value) {
         if (value.isNotEmpty) {

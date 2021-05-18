@@ -29,7 +29,7 @@ class Body extends StatelessWidget {
               ),
               SizedBox(height: SizeConfig.screenHight * 0.07),
               SignUpForm(),
-              SizedBox(height: SizeConfig.screenHight * 0.07),
+              SizedBox(height: SizeConfig.screenHight * 0.05),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -47,11 +47,12 @@ class Body extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: getProportionateScreenHeight(20)),
+              SizedBox(height: getProportionateScreenHeight(30)),
               Text(
-                "Para continuar debes de confirmar que estas de acuerdo \n con nuestros términos y condiciones",
+                "Para continuar debes de confirmar que estas de acuerdo con nuestros términos y condiciones",
                 textAlign: TextAlign.center,
-              )
+              ),
+              SizedBox(height: getProportionateScreenHeight(30)),
             ],
           ),
         ),

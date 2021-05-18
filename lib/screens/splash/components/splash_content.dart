@@ -15,6 +15,7 @@ class SplashContent extends StatelessWidget {
     return Column(
       children: <Widget>[
         Spacer(),
+        SizedBox(height: getProportionateScreenHeight(25)),
         Text(
           "DOGOFINDER",
           style: TextStyle(

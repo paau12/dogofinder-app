@@ -31,9 +31,10 @@ class Body extends StatelessWidget {
               CompleteProfileForm(),
               SizedBox(height: getProportionateScreenHeight(30)),
               Text(
-                "Para continuar debes de confirmar que estas de acuerdo \n con nuestros términos y condiciones",
+                "Para continuar debes de confirmar que estas de acuerdo con nuestros términos y condiciones",
                 textAlign: TextAlign.center,
-              )
+              ),
+              SizedBox(height: getProportionateScreenHeight(30)),
             ],
           ),
         ),
